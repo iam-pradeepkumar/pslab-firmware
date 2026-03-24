@@ -194,8 +194,9 @@ cmake -DLEGACY_HARDWARE=true ..
   <img src="https://pslab.io/images/pslab/bootloader.gif" width="400"/>
 </p>
 
-```bash
-mcbootflash --port <PORT> -b 460800 firmware.hex
+```
+bashmcbootflash --port <PORT> -b 460800 pslab-firmware.hex
+
 ```
 
 ### Steps:
