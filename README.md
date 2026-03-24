@@ -1,7 +1,7 @@
 # 🔬 PSLab Firmware
 
 <p align="center">
-  <img src="https://pslab.io/images/pslab/pslab_v6.jpg" width="500"/>
+  <img src="https://imgs.search.brave.com/PqX-QZoJzXboFRKTgW9g0MzaUYoLo4W633jjL_276IE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vY29kZWhl/YXQub3JnL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDI1LzA2L3Bz/bGFiaW8uanBnP3Jl/c2l6ZT03MDAsNTAw/JnNzbD0x" width="300"/>
 </p>
 
 <p align="center">
@@ -31,11 +31,6 @@ This repository contains the **firmware** that powers PSLab hardware (v5 & v6), 
 
 ## ⚡ Features
 
-<p align="center">
-  <img src="https://pslab.io/images/features/oscilloscope.png" width="150"/>
-  <img src="https://pslab.io/images/features/waveform.png" width="150"/>
-  <img src="https://pslab.io/images/features/logic.png" width="150"/>
-</p>
 
 - 📊 Oscilloscope  
 - 🌊 Waveform Generator  
@@ -53,9 +48,7 @@ This repository contains the **firmware** that powers PSLab hardware (v5 & v6), 
 
 ## 🧩 Open Source Ecosystem
 
-<p align="center">
-  <img src="https://pslab.io/images/pslab-stack.png" width="600"/>
-</p>
+
 
 PSLab is part of a complete open-source ecosystem:
 
@@ -102,9 +95,7 @@ Stay connected with the PSLab community:
 
 ## 🏢 About FOSSASIA
 
-<p align="center">
-  <img src="https://fossasia.org/img/fossasia-dark.png" width="300"/>
-</p>
+
 
 **FOSSASIA** is a global open-source organization focused on:
 
@@ -150,3 +141,142 @@ pslab-firmware/
 ├── CMakeLists.txt
 ├── flash.mdbscript
 └── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/fossasia/pslab-firmware.git
+cd pslab-firmware
+```
+
+### 2️⃣ Setup Submodules
+
+```bash
+git submodule init
+git submodule update
+```
+
+### 3️⃣ Build Firmware
+
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
+
+📌 Output:
+
+```bash
+pslab-firmware.hex
+```
+
+---
+
+## 🧪 Build for PSLab v5
+
+```bash
+cmake -DLEGACY_HARDWARE=true ..
+```
+
+---
+
+## 🔥 Flashing Firmware
+
+### 🔌 USB Method (Recommended)
+
+<p align="center">
+  <img src="https://pslab.io/images/pslab/bootloader.gif" width="400"/>
+</p>
+
+```bash
+mcbootflash --port <PORT> -b 460800 firmware.hex
+```
+
+### Steps:
+
+1. Hold **BOOT**
+2. Press **RESET**
+3. Wait for LED blinking
+4. Release BOOT
+5. Flash firmware
+
+---
+
+### ⚠️ Using Programmer (PICkit3)
+
+```bash
+mdb.sh flash.mdbscript
+```
+
+> ⚠️ This may overwrite the bootloader
+
+---
+
+## 🔁 Bootloader Mode (PSLab v5)
+
+<p align="center">
+  <img src="https://pslab.io/images/boot_pin.jpg" width="400"/>
+</p>
+
+Steps:
+
+1. Bridge **BOOT + GND pins**
+2. Reset device
+3. LED starts blinking
+
+---
+
+## 🐳 Dev Container Support
+
+<p align="center">
+  <img src="https://code.visualstudio.com/assets/docs/devcontainers/containers/hero.png" width="500"/>
+</p>
+
+* Open in VS Code
+* Click **Reopen in Container**
+* Start development instantly
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions!
+
+1. Fork the repository
+2. Create a branch
+3. Commit changes
+4. Submit a Pull Request
+
+---
+
+## 📄 License
+
+Licensed under **Apache 2.0**
+
+---
+
+## 🌍 Why PSLab?
+
+* 🧪 Affordable lab equipment
+* 🌐 Fully open-source
+* 🎓 Ideal for education & research
+
+---
+
+## ⭐ Support
+
+If you like this project:
+
+* ⭐ Star the repo
+* 🍴 Fork it
+* 🚀 Contribute
+
+---
+
+# ❤️ Built by FOSSASIA
