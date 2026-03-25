@@ -190,13 +190,10 @@ cmake -DLEGACY_HARDWARE=true ..
 
 ### 🔌 USB Method (Recommended)
 
-<p align="center">
-  <img src="https://pslab.io/images/pslab/bootloader.gif" width="400"/>
-</p>
+
 
 ```
 bashmcbootflash --port <PORT> -b 460800 pslab-firmware.hex
-
 ```
 
 ### Steps:
@@ -221,9 +218,7 @@ mdb.sh flash.mdbscript
 
 ## 🔁 Bootloader Mode (PSLab v5)
 
-<p align="center">
-  <img src="https://pslab.io/images/boot_pin.jpg" width="400"/>
-</p>
+
 
 Steps:
 
@@ -235,9 +230,7 @@ Steps:
 
 ## 🐳 Dev Container Support
 
-<p align="center">
-  <img src="https://code.visualstudio.com/assets/docs/devcontainers/containers/hero.png" width="500"/>
-</p>
+
 
 * Open in VS Code
 * Click **Reopen in Container**
