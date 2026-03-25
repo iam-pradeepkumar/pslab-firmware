@@ -1,44 +1,22 @@
 # 🔬 PSLab Firmware
 
-<p align="center">
-  <img src="https://imgs.search.brave.com/PqX-QZoJzXboFRKTgW9g0MzaUYoLo4W633jjL_276IE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vY29kZWhl/YXQub3JnL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDI1LzA2L3Bz/bGFiaW8uanBnP3Jl/c2l6ZT03MDAsNTAw/JnNzbD0x" width="300"/>
-</p>
-
-<p align="center">
-  Firmware for the <b>Pocket Science Lab (PSLab)</b> — a portable open-source electronics laboratory.
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/build-passing-brightgreen"/>
-  <img src="https://img.shields.io/badge/license-Apache%202.0-blue"/>
-  <img src="https://img.shields.io/badge/platform-Embedded-orange"/>
-  <img src="https://img.shields.io/badge/language-C-blue"/>
-</p>
+This repository contains firmware for the [Pocket Science Lab (PSLab)](https://pslab.io) open hardware platform. Hardware version 5 and 6 are supported.
 
 ---
 
 ## 🌟 Overview
 
-The **Pocket Science Lab (PSLab)** is a compact, powerful hardware platform that integrates multiple scientific instruments into a single device.
+The PSLab provides an array of test and measurement instruments for doing science and engineering experiments.
 
-This repository contains the **firmware** that powers PSLab hardware (v5 & v6), enabling:
+Its built-in instruments include:
 
-- Device control  
-- Communication handling  
-- Instrument execution  
+- Oscilloscope  
+- Waveform Generator  
+- Frequency Counter  
+- Programmable Voltage & Current Sources  
+- Logic Analyzer  
 
----
-
-## ⚡ Features
-
-
-- 📊 Oscilloscope  
-- 🌊 Waveform Generator  
-- 🔢 Frequency Counter  
-- 🔌 Programmable Voltage & Current Sources  
-- 📈 Logic Analyzer  
-
-### 🔗 Connectivity
+The PSLab also supports communication via:
 
 - UART  
 - I2C  
@@ -48,120 +26,59 @@ This repository contains the **firmware** that powers PSLab hardware (v5 & v6), 
 
 ## 🧩 Open Source Ecosystem
 
+The PSLab is a fully open device, and FOSSASIA provides a complete hardware and software stack:
 
-
-PSLab is part of a complete open-source ecosystem:
-
-- 🔧 Hardware  
-- ⚙️ Bootloader  
-- 💻 Firmware *(this repo)*  
-- 🐍 Python Library  
-- 🖥️ Desktop Application  
-- 📱 Android Application  
+- Hardware  
+- Bootloader  
+- Firmware (this repository)  
+- Python library  
+- Graphical desktop application  
+- Android app  
 
 ---
 
 ## 🛒 Get a PSLab Device
 
-You can purchase the Pocket Science Lab from:
-
-- 🛍️ **FOSSASIA Official Store**  
-  👉 https://fossasia.com/shop  
-
-- 🌐 **Official PSLab Website (Resellers List)**  
-  👉 https://pslab.io  
-
-> 💡 Availability may vary by region. Check the official website for global distributors.
+- FOSSASIA Shop → https://fossasia.com/shop  
+- Official Website → https://pslab.io  
 
 ---
 
 ## 🔔 Stay Updated
 
-Stay connected with the PSLab community:
-
-- 💬 **Gitter Chat**  
-  👉 https://gitter.im/fossasia/pslab  
-
-- 📧 **Mailing List**  
-  👉 https://groups.google.com/g/pslab  
-
-- 🐦 **Twitter / X Updates**  
-  👉 https://twitter.com/fossasia  
-
-- 🌐 **Official Website**  
-  👉 https://pslab.io  
+- Gitter Chat → https://gitter.im/fossasia/pslab  
+- Mailing List → https://groups.google.com/g/pslab  
 
 ---
 
-## 🏢 About FOSSASIA
+## ⚙️ Dependencies
 
+The following tools are required to build the firmware:
 
-
-**FOSSASIA** is a global open-source organization focused on:
-
-- 🌍 Promoting open technologies  
-- 🎓 Supporting student developers  
-- 🤖 Building AI, hardware, and software solutions  
-- 🧑‍💻 Running programs like **Google Summer of Code (GSoC)**  
-
-### 🌟 What FOSSASIA Does
-
-- Maintains **100+ open-source projects**  
-- Organizes **FOSSASIA Summit**  
-- Supports developers worldwide  
-
-👉 Learn more: https://fossasia.org  
+- xc16 compiler  
+- cmake  
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Building
 
-| Component     | Technology        |
-|--------------|------------------|
-| Language      | C                |
-| Build System  | CMake            |
-| Compiler      | Microchip XC16   |
+This project is built with CMake.
 
----
-
-## 📦 Repository Structure
-
-```bash
-pslab-firmware/
-├── src/
-│   ├── bus/
-│   ├── helpers/
-│   ├── instruments/
-│   ├── registers/
-│   ├── sdcard/
-│   ├── main.c
-│   └── commands.c
-├── external/
-│   └── cmake-microchip/
-├── CMakeLists.txt
-├── flash.mdbscript
-└── README.md
-```
-
----
-
-## 🚀 Getting Started
-
-### 1️⃣ Clone Repository
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/fossasia/pslab-firmware.git
 cd pslab-firmware
 ```
 
-### 2️⃣ Setup Submodules
+### 2. Initialize Submodules
 
 ```bash
 git submodule init
 git submodule update
 ```
 
-### 3️⃣ Build Firmware
+### 3. Build Firmware
 
 ```bash
 mkdir build
@@ -170,15 +87,13 @@ cmake ..
 make
 ```
 
-📌 Output:
+This will create:
 
 ```bash
 pslab-firmware.hex
 ```
 
----
-
-## 🧪 Build for PSLab v5
+### Build for PSLab v5
 
 ```bash
 cmake -DLEGACY_HARDWARE=true ..
@@ -188,88 +103,105 @@ cmake -DLEGACY_HARDWARE=true ..
 
 ## 🔥 Flashing Firmware
 
-### 🔌 USB Method (Recommended)
+The firmware can be flashed over USB or by using a programmer such as the PICkit3.
 
+### 🔌 USB Method
 
+Firmware can be flashed over USB if the device already has the bootloader installed.
 
-```
-bashmcbootflash --port <PORT> -b 460800 pslab-firmware.hex
-```
+Flashing requires `mcbootflash`, which can be installed via:
+
+- https://github.com/fossasia/mcbootflash  
+- https://github.com/fossasia/pslab-python  
 
 ### Steps:
 
-1. Hold **BOOT**
-2. Press **RESET**
-3. Wait for LED blinking
-4. Release BOOT
-5. Flash firmware
+1. Press and hold the **BOOT** button  
+2. Press the **RESET** button  
+3. The status LED will start blinking  
+4. Release the BOOT button  
+5. Run:
+
+```bash
+mcbootflash --port <PORT> -b 460800 pslab-firmware.hex
+```
+
+6. Reset or power cycle the device  
 
 ---
 
-### ⚠️ Using Programmer (PICkit3)
+### ⚠️ Using a Programmer
+
+If flashing using a programmer:
+
+> ⚠️ Warning: Flashing firmware directly may overwrite the bootloader.
+
+It is recommended to create a combined HEX file containing both bootloader and firmware.
+
+Steps:
+
+1. Disconnect device  
+2. Connect programmer to ICSP header  
+3. Power device via USB  
+4. Run:
 
 ```bash
 mdb.sh flash.mdbscript
 ```
 
-> ⚠️ This may overwrite the bootloader
+5. Disconnect programmer  
 
 ---
 
 ## 🔁 Bootloader Mode (PSLab v5)
 
+PSLab v5 does not have a BOOT button.
 
+To enter bootloader mode:
 
-Steps:
-
-1. Bridge **BOOT + GND pins**
-2. Reset device
-3. LED starts blinking
+- Bridge BOOT pin and GND  
+- Reset or power cycle device  
+- LED should start blinking  
 
 ---
 
-## 🐳 Dev Container Support
+## 🐳 Dev Container Usage
 
+This repository supports development using VS Code Dev Containers and GitHub Codespaces.
 
+Steps:
 
-* Open in VS Code
-* Click **Reopen in Container**
-* Start development instantly
+1. Open in VS Code  
+2. Click "Reopen in Container"  
+3. Start development  
+
+---
+
+## 📦 Repository Structure
+
+```
+pslab-firmware/
+├── src/
+├── external/
+├── CMakeLists.txt
+├── flash.mdbscript
+└── README.md
+```
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions!
-
-1. Fork the repository
-2. Create a branch
-3. Commit changes
-4. Submit a Pull Request
+1. Fork the repository  
+2. Create a branch  
+3. Commit changes  
+4. Submit a Pull Request  
 
 ---
 
 ## 📄 License
 
-Licensed under **Apache 2.0**
-
----
-
-## 🌍 Why PSLab?
-
-* 🧪 Affordable lab equipment
-* 🌐 Fully open-source
-* 🎓 Ideal for education & research
-
----
-
-## ⭐ Support
-
-If you like this project:
-
-* ⭐ Star the repo
-* 🍴 Fork it
-* 🚀 Contribute
+Apache 2.0  
 
 ---
 
