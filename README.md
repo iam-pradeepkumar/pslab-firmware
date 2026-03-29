@@ -1,6 +1,6 @@
 # 🔬 PSLab Firmware
 
-This repository contains firmware for the [Pocket Science Lab (PSLab)](https://pslab.io) open hardware platform. Hardware version 5 and 6 are supported.
+This repository contains firmware for the [Pocket Science Lab (PSLab)](https://pslab.io) open hardware platform. Hardware versions 5 and 6 are supported.
 
 ---
 
