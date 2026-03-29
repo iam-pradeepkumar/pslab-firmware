@@ -6,7 +6,7 @@ This repository contains firmware for the [Pocket Science Lab (PSLab)](https://p
 
 ## 🌟 Overview
 
-The PSLab provides an array of test and measurement instruments for doing science and engineering experiments.
+The PSLab provides an array of test and measurement instruments for science and engineering experiments.
 
 Its built-in instruments include:
 
@@ -71,7 +71,7 @@ git clone https://github.com/fossasia/pslab-firmware.git
 cd pslab-firmware
 ```
 
-### 2. Initialize Submodules
+### 2. Initialize and Update Submodules
 
 ```bash
 git submodule init
